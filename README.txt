@@ -1,1 +1,1 @@
-Hello World!\n
+Small Art Picture / css linear-gradient + javascript
