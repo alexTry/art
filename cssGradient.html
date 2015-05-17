@@ -24,7 +24,6 @@
 			}
 			h1:hover{
 				color: #b61a1a;
-/* 				text-decoration: underline; */
 			}
 			body{
 				background-color: #efefef;
@@ -36,7 +35,6 @@
 				width: 402px;
 				height: 300px;
 				margin: auto;
-/* 				border: 1px dotted black; */
 			}
 			#one{
 				position: absolute;
@@ -62,9 +60,6 @@
 				margin-top: -45px;
 				top: 50%;
 				box-sizing: border-box;
-				
-
-
 			}
 			footer p{
 				position: absolute;
@@ -84,8 +79,6 @@
 		</div>
 		<footer>
 			<p>Alexey Ivanov<span >Coding by</span></p>
-			
-
 		</footer>
 	</body>
 	<script>
@@ -106,57 +99,48 @@
 		});
 		$('*').disableSelection(); 
 		$(document).ready(function(){
-			
-		  var deg = 0,
-		  	
-		  	fatStart = 3,
-		  	fatEnd = 20,	
-		  	fat = 1,
-		  	fatSpeed = 100,
-		  	gradient = [10,50,150],
-		  	check = false,
-		  	timerFat,
-		  	timer;
-		  	timerFat = setInterval(function() {
-				  
-		  		if (check === false) {
-		  		if (fat === fatEnd) {
-
-			  		check = true;
-		  		}
-		  		fat +=1;
-		  		} else {
-			  		if (fat === fatStart) {
-
-			  		check = false;
-		  		}
-		  		fat -=1;
-		  		}
-		  }, fatSpeed);
-		  	timer = start();
-		  function start() { 
-			  return setInterval(function(){
-			  $('#one').css('background','linear-gradient( '+ deg+ 'deg,#ffefef '+(gradient[0]-fat)+'px, #f77 '+gradient[0]+'px, #ffefef '+(gradient[0]+fat)+'px,#efefef '+(gradient[1]-fat)+'px, #777 '+gradient[1]+'px, #efefef '+(gradient[1]+fat)+'px,  #efefef '+ (gradient[2] - fat)+'px, #777 '+gradient[2]+'px, #efefef '+(gradient[2]+fat)+'px)');
-			  if (deg === -360) {
-				  deg = 0;
-			  }
-			  deg -= 50;
-		  }, 1);
-		  }
-		  
-		  $('h1').click(function(e){
-			  
-			  if (timer){
-				  
-			  clearInterval(timer);
-			  timer = !timer;
-			  $('h1').text('Play').css('color','#b61a1a');
-			  } else {
-				  
+			var deg = 0,
+			  	fatStart = 3,
+			  	fatEnd = 20,	
+			  	fat = 1,
+			  	fatSpeed = 100,
+			  	gradient = [10,50,150],
+			  	check = false,
+			  	timerFat,
+			  	timer;
+			timerFat = setInterval(function() {
+			  	if (check === false) {
+			  		if (fat === fatEnd) {
+				  		check = true;
+			  		}
+			  		fat +=1;
+			  	} else {
+				  	if (fat === fatStart) {
+				  		check = false;
+			  		}
+			  		fat -=1;
+			  	}
+			}, fatSpeed);
+			timer = start();
+			function start() { 
+			  	return setInterval(function(){
+			  		$('#one').css('background','linear-gradient( '+ deg+ 'deg,#ffefef '+(gradient[0]-fat)+'px, #f77 '+gradient[0]+'px, #ffefef '+(gradient[0]+fat)+'px,#efefef '+(gradient[1]-fat)+'px, #777 '+gradient[1]+'px, #efefef '+(gradient[1]+fat)+'px,  #efefef '+ (gradient[2] - fat)+'px, #777 '+gradient[2]+'px, #efefef '+(gradient[2]+fat)+'px)');
+			  		if (deg === -360) {
+			  			deg = 0;
+			  		}
+			  		deg -= 50;
+		  		}, 1);
+		  	}
+		  	$('h1').click(function(e){
+			  	if (timer){  
+			 		clearInterval(timer);
+			 		timer = !timer;
+			 		$('h1').text('Play').css('color','#b61a1a');
+			  	} else {	  
 				  timer = start();
 				  $('h1').text('Stop').css('color','#444');
-			  }
-		  })
+			  	}
+			})
 		});
 	</script>
 </html>
